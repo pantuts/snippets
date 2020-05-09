@@ -15,12 +15,25 @@ Reset initial commit
 ```
 git update-ref -d HEAD
 ```
+With heroku
+```
+# heroku create APP_NAME_STAGE
+git remote add STAGE git@heroku.com:APP_NAME_STAGE.git
+git push stage master
+```
 
 # ls
 Sort by modified date
 ```
 ls -t
 ls -tr # reverse
+```
+
+# pacman
+Query first then remove by file
+```
+pacman -Qs 'python2-*' | grep '/python' | cut -d '/' -f 2 | awk '{print $1}' > /tmp/remove.txt
+while read line; do sudo pacman -Rd --noconfirm --nodeps $line; done < /tmp/remove.txt
 ```
 
 # rsync

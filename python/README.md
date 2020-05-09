@@ -1,3 +1,9 @@
+# Libraries to study
+* https://github.com/pytoolz/toolz
+* https://github.com/samuelcolvin/pydantic
+* https://fastapi.tiangolo.com/
+* https://airshare.readthedocs.io/en/latest/
+
 # beautifulsoup
 [bs4.md](bs4.md)
 
