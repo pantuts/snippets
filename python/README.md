@@ -1,3 +1,6 @@
+# LIBRARIES to study
+* https://github.com/pytoolz/toolz
+
 # beautifulsoup
 [bs4.md](bs4.md)
 

@@ -4,6 +4,7 @@ import daiquiri
 import daiquiri.formatter
 import logging
 
+LOG_FORMAT = '%(asctime)s [PID %(process)d] [%(levelname)s] %(name)s -> %(message)s'
 LOG_DIR = './logs'
 LOG_FILENAME = 'logs'
 LOG_FILENAME_EXT = 'json'
