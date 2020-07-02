@@ -1,5 +1,17 @@
 [![tux](http://files.softicons.com/download/system-icons/tux-penguin-icons-by-yellow-icon/png/128/Penguin_2.png)]()
 
+# curl
+Download with resume
+```
+curl -L -O -C - URL.file
+```
+
+# docker
+Import sql
+```
+docker exec -i ID mysql -u root --password=PASSWORD dbname < sql.sql
+```
+
 # ffmpeg
 Cut from-to
 ```
@@ -15,12 +27,43 @@ Reset initial commit
 ```
 git update-ref -d HEAD
 ```
+Show files
+```
+git ls-tree -r master --name-only
+```
+With heroku
+```
+# heroku create APP_NAME_STAGE
+git remote add STAGE git@heroku.com:APP_NAME_STAGE.git
+git push stage master
+```
+
+# gource
+Visualize commits
+```
+gource -s .1 -1920x1080 --auto-skip-seconds .1 --multi-sampling --stop-at-end --highlight-users --hide mouse,progress --file-idle-time 15 --max-files 0 --background-colour 000000 --font-size 24 --title "TITLE" --output-ppm-stream - --output-framerate 30 .git| ffmpeg -y -f image2pipe -vcodec ppm -i - ~/Desktop/test.mp4
+```
 
 # ls
 Sort by modified date
 ```
 ls -t
 ls -tr # reverse
+```
+
+# pacman
+Query first then remove by file
+```
+pacman -Qs 'python2-*' | grep '/python' | cut -d '/' -f 2 | awk '{print $1}' > /tmp/remove.txt
+while read line; do sudo pacman -Rd --noconfirm --nodeps $line; done < /tmp/remove.txt
+```
+Remove package+deps
+```
+pacman -Rcn package
+```
+Clear cache of uninstalled packages
+```
+pacman -Sc
 ```
 
 # rsync
@@ -55,4 +98,12 @@ while read line; do echo $line; done < file
 mp3
 ```
 youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" --verbose URL
+```
+
+
+# OTHERS
+
+Convert vdi to qcow2
+```
+qemu-img convert -f vdi -O qcow2 Centos7.8.vdi Centos7.8.qcow2
 ```
